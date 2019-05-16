@@ -35,7 +35,10 @@ Ensure required peer dependencies are available.
 const aws = require('aws-sdk-wrap')();
 
 aws
-  .call('s3', 'putObject', { /* ... */ })
+  .call('s3',
+    'putObject',
+    { /* aws func params */ },
+    { expectedErrorCodes: [/* aws err codes like 'NoSuchKey' */]})
   .then(/* ... */)
   .catch(/* ... */);
 ```
